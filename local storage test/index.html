@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+    <input type="text" name="" id="username"><br><br>
+    <input type="password" id="password"><br><br>
+    <button onclick="saveData()">Submit</button>
+
+    <table border="2">
+        <tr border="2">
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td id="for-username"></td>
+            <td id="for-password"></td>
+        </tr>
+    </table>
+    <script>
+        var GetStorage = localStorage.getItem('Data');
+        var GetStorageArray = JSON.parse(GetStorage);
+
+        function saveData(){
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+
+            var Existing = localStorage.getItem('Data');
+            var ExistingArray = JSON.parse(Existing);
+
+            let NewData = {
+                'username': username.value,
+                'password': password.value
+            };
+
+            if (ExistingArray.length > 0) {
+                 
+            ExistingArray.push(NewData);
+            var modifiedArray = JSON.stringify(ExistingArray);
+            localStorage.setItem("Data",modifiedArray);
+            }else{
+                var modifiedArray = JSON.stringify(NewData);
+                localStorage.setItem("Data",modifiedArray);
+
+            }
+
+            username.value = '';
+            password.value = '';
+
+        }
+        GetStorageArray.foreach(retriveData);
+
+        function retriveData(){
+            const forUsername = document.getElementById("for-username");
+            const forPassword = document.getElementById("for-password");
+
+            forUsername.innerHTML = GetStorageArray.username;
+            forPassword.innerHTML = GetStorageArray.password;
+        }
+        retriveData();
+    </script>
+</body>
+</html>
