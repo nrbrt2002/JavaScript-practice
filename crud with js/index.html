@@ -11,11 +11,12 @@
         <div class="card">
             <div class="card-header d-flex">
                 <h2>JavaScript CRUD</h2>
-                <button class="btn btn-secondary" onclick="showForm()">
+                <button class="btn btn-secondary" onclick="showForm()" id="show-form">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM704 536c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"></path></svg>
                 </button>
             </div>
             <div class="card-body">
+              <!-- Create Record Form -->
                 <form class="row row-cols-lg-auto g-3 align-items-center" id="AddForm" style="display: none;">
                     <div class="col-12">
                       <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
@@ -29,10 +30,10 @@
                   
                   
                     <div class="col-12">
-                      <button type="submit" onclick="save()" class="btn btn-primary">Submit</button>
+                      <button type="button" onclick="save()" class="btn btn-primary">Submit</button>
                     </div>
                   </form>
-
+                  <!-- update form record -->
                   <form class="row row-cols-lg-auto g-3 align-items-center" id="updaateForm" style="display: none;">
                     <div class="col-12">
                       <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
@@ -46,21 +47,21 @@
                   
                   
                     <div class="col-12">
-                      <button type="submit" onclick="save()" class="btn btn-primary">Update</button>
+                      <button type="button" onclick="save()" class="btn btn-primary">Update</button>
                     </div>
                   </form>
 
                   <hr>
                   <h2 class="d-flex justify-content-center" style="margin-left: 30%; width: 50%;border-bottom: 1px solid #626568;">All recorded</h2>
                   <table class="table table-hover">
-                    <tr>
+                    <thead>
                         <th>#</th>
                         <th>Names</th>
                         <th>Email</th>
-                    </tr>
-                    <tr class="data-table">
+                    </thead>
+                    <tbody class="data_table">
 
-                    </tr>
+                    </tbody>
                   </table>
             </div>
         </div>
